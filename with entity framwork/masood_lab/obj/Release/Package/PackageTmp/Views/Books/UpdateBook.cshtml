@@ -1,0 +1,99 @@
+﻿@model masood_lab.Models.BooksModel
+@{
+    ViewBag.Title = "UpdateBook";
+    Layout = "~/Views/master.cshtml";
+}
+
+<h2>UpdateBook</h2>
+
+@helper Button(string type, string value)
+{
+    <input type="@type" value="@value" class=" btn btn-primary btn-block" />
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    <div class="form-group row">
+        @Html.HiddenFor(a => a.BookID)
+        <div class="col-sm-2 mb-3 mb-sm-0">
+            <label>ID</label>
+            @Html.TextBoxFor(a => a.BookID, null, new { @class = "form-control ", @disabled = "disabled" })
+        </div>
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Name</label>
+            @Html.TextBoxFor(b => b.BookName, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookName, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-4">
+            <label> Book Author</label>
+            @Html.TextBoxFor(b => b.BookAuthor, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookAuthor, null, new { @class = "Errormessage" })
+
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Publisher</label>
+            @Html.TextBoxFor(b => b.BookPublisher, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookPublisher, null, new { @class = "Errormessage" })
+        </div>
+    </div>
+    <div class="form-group row">
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Price</label>
+            @Html.TextBoxFor(b => b.BookPrice, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookPrice, null, new { @class = "Errormessage" })
+        </div>
+        
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Category</label><br />
+            @Html.DropDownListFor(model => model.BooksCategoryID, ViewBag.BooksCategory as IEnumerable<SelectListItem>, "Please select category", new { @class = "btn btn-theme dropdown-toggle ", required = "required" })
+            @Html.ValidationMessageFor(model => model.BooksCategoryID, null, new { @class = "Errormessage" })
+        </div>
+
+        @*<div class="col-sm-4 mb-3 mb-sm-0">
+                <label>Upload Image</label>
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                        <img src="~/Content/img/UPLOADIMAGE.png" alt="" />
+                    </div>
+                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                    <div>
+                        <span class="btn btn-theme02 btn-file">
+                            <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select image</span>
+                            <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                            <input type="file" class="default" />
+                        </span>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+
+    <div class="form-grp row">
+        <div class="col-sm-2">
+            @Button("submit", "Update")
+
+        </div>
+       
+    </div>
+    <hr>
+}
+
+
+
+
+@*@Html.DropDownListFor(b => b.BookCategoryID, new List<SelectListItem>
+    {
+        new SelectListItem{Text="Fiction",Value="1"},
+        new SelectListItem{Text="Non-fiction",Value="2"},
+        new SelectListItem{Text="Drama",Value="3"},
+        new SelectListItem{Text="Biography",Value="4"},
+        new SelectListItem{Text="Novel",Value="5"},
+        new SelectListItem{Text="Humor",Value="6"},
+        new SelectListItem{Text="Poetry",Value="7"},
+        new SelectListItem{Text="Textbook",Value="8"},
+        new SelectListItem{Text="Horor",Value="9"},
+        new SelectListItem{Text="Crime",Value="10"}
+    }, new { @class = "btn btn-theme dropdown-toggle " }
+         )*@

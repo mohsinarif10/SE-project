@@ -1,0 +1,117 @@
+﻿@model masood_lab.Models.MemberModel
+
+
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/master.cshtml";
+}
+@helper Button(string type, string value)
+{
+    <input type="@type" value="@value" class=" btn btn-primary btn-block" />
+}
+<h2>Add Member</h2>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-group row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Firs Name</label>
+           
+
+            @Html.TextBoxFor(a => a.Firstname, null, new { @class = "form-control ", placeholder = "Masood" })
+        </div>
+        <div class="col-sm-3">
+            <label> Last Name</label>
+            @Html.TextBoxFor(a => a.Lastname, null, new { @class = "form-control ", placeholder = "Arif" })
+            
+
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Number</label>
+          @Html.TextBoxFor(a => a.Phonenumber, null, new { @class = "form-control ", placeholder = "03313812604" })
+
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>NIC number</label>
+            @Html.TextBoxFor(a => a.NIC, null, new { @class = "form-control ", placeholder = "413243-83599299-9" })
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-5 mb-3 mb-sm-0">
+            <label>Address</label>
+            @Html.TextBoxFor(a => a.Address, null, new { @class = "form-control ", placeholder = "Karachi, Pakistan" })
+
+        </div>
+        <div class="col-sm-3">
+            <label>Email</label>
+            @Html.TextBoxFor(a => a.Email, null, new { @class = "form-control ", placeholder = "masoodarif1313@gmail.com" })
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Date of birth</label>
+            <div class="col-md-3 col-xs-11">
+               
+                @Html.TextBoxFor(a => a.Date_of_birth, new { @class = "form-control form-control-inline input-medium default-date-picker ", placeholder = "12/12/2012" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-5 mb-3 mb-sm-0">
+            <label>Password</label>
+            @Html.TextBoxFor(a => a.Password, null, new { @class = "form-control ", placeholder = "********" })
+        </div>
+        <div class="col-sm-5">
+            <label>Repeat Password</label>
+            @Html.TextBoxFor(a => a.RepeatPassword, null, new { @class = "form-control ", placeholder = "********" })
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Gender</label>
+            <br />
+            @Html.RadioButtonFor(a => a.Gender, "Male", new { @class = "form control " })Male
+            <br />
+            @Html.RadioButtonFor(a => a.Gender, "Female", new { @class = "form control " })Female
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Department</label>
+            @Html.DropDownListFor(a => a.Department, new List<SelectListItem>
+       {
+           new SelectListItem{Text="COCIS",Value="1"},
+           new SelectListItem{Text="COE",Value="2"},
+           new SelectListItem{Text="COMS",Value="3"},
+           new SelectListItem{Text="COA",Value="4"}
+       }, new { @class = "form-control " }
+            )
+
+        </div>
+        <div class="col-sm-4 ">
+            <label>Skills</label>
+            <div class="custom-control custom-checkbox small">
+                @Html.CheckBoxFor(a => a.Csharp,new { @class = "custom-control-input" })
+                <label class="custom-control-label" for="Csharp">C#</label>
+            </div>
+            <div class="custom-control custom-checkbox small">
+                @Html.CheckBoxFor(a => a.python,new { @class = "custom-control-input" })
+                <label class="custom-control-label" for="python">Python</label>
+            </div>
+            <div class="custom-control custom-checkbox small">
+                @Html.CheckBoxFor(a => a.JAVA,new { @class = "custom-control-input" })
+                <label class="custom-control-label" for="java">JAVA</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-grp row">
+        <div class="col-sm-2">
+            @Button("submit", "Submit")
+
+        </div>
+        <div class="col-sm-2">
+            @Button("reset", "Reset")
+
+        </div>
+    </div>
+    <hr>
+}
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<masood_lab.Models.RegistrationModel>
+
+@{
+    ViewBag.Title = "ViewRegister";
+    Layout = "~/Views/master.cshtml";
+}
+
+
+<h2>ViewRegistrations   <label id="masood" class="label label-success" style="font-size:small;display:none">@ViewBag.Message</label></h2>
+
+<div class="content-panel">
+    <div class="adv-table">
+        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+            <thead>
+                <tr>
+                    <th class="hidden-phone">Registration ID</th>
+                  
+                    <th class="hidden-phone">Book Name</th>
+                    <th class="hidden-phone">Member Name</th>
+                    <th class="hidden-phone">Issued Date</th>
+                    <th class="hidden-phone">Expiry Date</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var register in Model)
+                {
+                    <tr class="gradeX">
+                        <td>@register.registrationID</td>
+                        <td>@register.BookName</td>
+                        <td>@register.MemberName</td>
+                        <td>@register.IssuedDate</td>
+                        <td>@register.ExpiryDate</td>
+                        <td>
+                            <a class="label label-success" href="@Url.Action("Update", "RegisterBook", new { FID = @register.registrationID })">Update <i class="fa fa-edit"></i></a>
+                            <a class="label label-danger" href="@Url.Action("Delete", "RegisterBook", new { FID = @register.registrationID })">Delete <i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function ()
+    {
+
+        if ("@ViewBag.Message" != "") {
+          document.getElementById('masood').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#masood').hide(); }, duration);
+        }
+
+    }
+
+</script>

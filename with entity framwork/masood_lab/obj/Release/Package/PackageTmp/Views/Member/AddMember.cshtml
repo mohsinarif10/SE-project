@@ -1,0 +1,136 @@
+﻿
+@model masood_lab.Models.MemberModel
+
+
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/master.cshtml";
+}
+
+<h2>Add Member  <label id="error" class="label label-danger" style="font-size:small;display:none">@ViewBag.model</label>
+    </h2>
+@using (Html.BeginForm("AddMember", "Member", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group row">
+      
+
+        <div class="col-sm-2 mb-3 mb-sm-0">
+            <label>ID</label>
+            @Html.HiddenFor(a => a.memberID)
+            @Html.TextBoxFor(a => a.memberID, null, new { @class = "form-control ", @disabled = "disabled" })
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>First Name</label>
+
+
+            @Html.TextBoxFor(a => a.Firstname, null, new { @class = "form-control ", placeholder = "Masood", required = "required" })
+            @Html.ValidationMessageFor(a => a.Firstname, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-3">
+            <label> Last Name</label>
+            @Html.TextBoxFor(a => a.Lastname, null, new { @class = "form-control ", placeholder = "Arif", required = "required" })
+            @Html.ValidationMessageFor(a => a.Lastname, null, new { @class = "Errormessage" })
+
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Number</label>
+            @Html.TextBoxFor(a => a.Phonenumber, null, new { @class = "form-control ", placeholder = "03313812604", required = "required" })
+            @Html.ValidationMessageFor(a => a.Phonenumber, null, new { @class = "Errormessage" })
+        </div>
+
+
+
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-5 mb-3 mb-sm-0">
+            <label>Address</label>
+            @Html.TextBoxFor(a => a.Address, null, new { @class = "form-control ", placeholder = "Karachi, Pakistan" })
+
+        </div>
+        <div class="col-sm-3">
+            <label>Email</label>
+            @Html.TextBoxFor(a => a.Email, null, new { @class = "form-control ", placeholder = "masoodarif1313@gmail.com", required = "required" })
+            @Html.ValidationMessageFor(a => a.Email, null, new { @class = "Errormessage" })
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Date of birth</label>
+            <div class="col-md-3 col-xs-11">
+
+                @Html.TextBoxFor(a => a.Date_of_birth, new { @class = "form-control form-control-inline input-medium default-date-picker ", placeholder = "DD-MM-YY" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>NIC number</label>
+            @Html.TextBoxFor(a => a.NIC, null, new { @class = "form-control ", placeholder = "413243-83599299-9", required = "required" })
+            @Html.ValidationMessageFor(a => a.NIC, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Password</label>
+            @Html.TextBoxFor(a => a.Password, null, new { type = "password", @class = "form-control ", placeholder = "****", required = "required" })
+            @Html.ValidationMessageFor(a => a.Password, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-4">
+            <label>Repeat Password</label>
+            @Html.TextBoxFor(a => a.RepeatPassword, null, new { type = "password", @class = "form-control ", placeholder = "****", required = "required" })
+            @Html.ValidationMessageFor(a => a.RepeatPassword, null, new { @class = "Errormessage" })
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Gender</label>
+            <br />
+            @Html.RadioButtonFor(a => a.Gender, "Male", new { @class = "form control " })Male
+            <br />
+            @Html.RadioButtonFor(a => a.Gender, "Female", new { @class = "form control " })Female
+        </div>
+
+    
+    </div>
+
+    <div class="form-grp row">
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary btn-block" >Submit</button>
+        </div>
+        <div class="col-sm-2">
+
+            <input type="reset" value=" reset" class="btn btn-primary btn-block" />
+
+        </div>
+    </div>
+    <hr>
+}
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        if ("@ViewBag.model" != "")
+        {
+            document.getElementById('success').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#success').hide(); }, duration);
+        }
+    }
+
+</script>
+
+@*<div class="col-sm-4 ">
+        <label>Skills</label>
+        <div class="custom-control custom-checkbox small">
+            @Html.CheckBoxFor(a => a.Csharp,new { @class = "custom-control-input" })
+            <label class="custom-control-label" for="Csharp">C#</label>
+        </div>
+        <div class="custom-control custom-checkbox small">
+            @Html.CheckBoxFor(a => a.python,new { @class = "custom-control-input" })
+            <label class="custom-control-label" for="python">Python</label>                         ========checkbox===========
+        </div>
+        <div class="custom-control custom-checkbox small">
+            @Html.CheckBoxFor(a => a.JAVA,new { @class = "custom-control-input" })
+            <label class="custom-control-label" for="java">JAVA</label>
+        </div>
+  </div>*@
+
+

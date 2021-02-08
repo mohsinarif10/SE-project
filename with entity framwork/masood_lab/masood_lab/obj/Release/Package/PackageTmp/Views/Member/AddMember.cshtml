@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/master.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+
+
+<!-- Icons font CSS-->
+<link href="~/Content/add_member/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<link href="~/Content/add_member/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+<!-- Font special for pages-->
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!-- Vendor CSS-->
+<link href="~/Content/add_member/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+<link href="~/Content/add_member/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+<!-- Main CSS-->
+<link href="~/Content/add_member/css/main.css" rel="stylesheet" media="all">
+<style>
+    .ab{
+        width:70%;
+        
+    }
+</style>
+
+<div class="card card-3">
+    <div class="card-heading"></div>
+    <div class="card-body" >
+        <h2 class="title" style="margin-left:50px">Add Member</h2>
+        <form method="POST" style="margin-left:50px">
+            <div class="input-group ab ">
+                @Html.TextBox("name", null, new { @class = "input--style-3", placeholder = "Name" })
+                
+            </div>
+            <div class="input-group ab">
+                @Html.TextBox("lastname", null, new { @class = "input--style-3", placeholder = "Last Name" })
+             
+            </div>
+            <div class="input-group ab">
+                @Html.TextBox("birthday", null, new { @class = "input--style-3 js-datepicker", placeholder = "Birthdate" })
+             
+                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+            </div>
+            <div class="input-group ab">
+                <div class="rs-select2 js-select-simple select--no-search">
+                    @Html.DropDownList("gender", new List<SelectListItem>
+                    {
+                          new SelectListItem { Text = "Male", Value = "male" },
+                          new SelectListItem { Text = "Female", Value = "female"},
+                          new SelectListItem { Text = "Others", Value = "others"},
+                    }, "Gender") 
+                    
+                    <div class="select-dropdown ab"></div>
+                </div>
+            </div>
+            <div class="input-group ab">
+                @Html.TextBox("email", null, new { @class = "input--style-3 ", placeholder = "Email" })
+                
+            </div>
+            <div class="input-group ab">
+                @Html.TextBox("phone", null, new { @class = "input--style-3 ", placeholder = "Phone" })
+               
+            </div>
+            <div class="p-t-10">
+                @*<input type="button" value="Create" onclick="location.href='@Url.Action("Create", "User")'" />*@
+                <button class="btn btn--pill btn--green" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="~/Content/add_member/vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="~/Content/add_member/vendor/select2/select2.min.js"></script>
+<script src="~/Content/add_member/vendor/datepicker/moment.min.js"></script>
+<script src="~/Content/add_member/vendor/datepicker/daterangepicker.js"></script>
+<!-- Main JS-->
+<script src="~/Content/add_member/js/global.js"></script>

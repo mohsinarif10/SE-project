@@ -1,0 +1,45 @@
+﻿@model masood_lab.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/SharedLogin.cshtml";
+}
+<div id="login-page">
+    <div class="container">        
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-login" }))
+        {
+            <h2 class="form-login-heading">sign in now</h2>
+            <div class="login-wrap">               
+                @Html.TextBoxFor(a => a.Loginid, null, new { @class = "form-control ", placeholder = "Login ID", required = "required" })
+                @Html.ValidationMessageFor(a => a.Loginid, null, new { @class = "Errormessage" })
+                <br>
+                @Html.TextBoxFor(a => a.login_password, null, new { type = "password", @class = "form-control ", placeholder = "*******", required = "required" })
+                @Html.ValidationMessageFor(a => a.login_password, null, new { @class = "Errormessage" })
+                 <br />              
+                <button class="btn btn-theme btn-block" href="@Url.Action("Index", "Home")" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+             <br />
+                <center><label class="btn btn-danger" id="label" style="display:none">@ViewBag.Message</label></center>   
+            <hr>
+                <div class="registration">
+                    Don't have an account yet?<br />
+                    <a class="" href="@Url.Action("AddAdmin","Admin")">
+                        Create ADMIN account
+                    </a>
+                </div>
+            </div>
+        }
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        if ("@ViewBag.Message" != "") {
+            document.getElementById('label').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#label').hide(); }, duration);
+        }
+
+    }
+
+</script>

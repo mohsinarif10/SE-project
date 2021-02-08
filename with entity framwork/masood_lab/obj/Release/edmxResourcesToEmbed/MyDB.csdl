@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Library_systemEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="MyDBModel.sysdiagram" />
+    <EntitySet Name="tblBooksCategories" EntityType="MyDBModel.tblBooksCategory" />
+    <EntitySet Name="tblBooksMembers" EntityType="MyDBModel.tblBooksMember" />
+    <EntitySet Name="tblLogins" EntityType="MyDBModel.tblLogin" />
+    <EntitySet Name="tblNewBooks_registration" EntityType="MyDBModel.tblNewBooks_registration" />
+    <EntitySet Name="tblNewMembers_registration" EntityType="MyDBModel.tblNewMembers_registration" />
+    <AssociationSet Name="FK_tblNewBooks_registration_tblBooksCategory" Association="MyDBModel.FK_tblNewBooks_registration_tblBooksCategory">
+      <End Role="tblBooksCategory" EntitySet="tblBooksCategories" />
+      <End Role="tblNewBooks_registration" EntitySet="tblNewBooks_registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBooksMembers_tblNewBooks_registration" Association="MyDBModel.FK_tblBooksMembers_tblNewBooks_registration">
+      <End Role="tblNewBooks_registration" EntitySet="tblNewBooks_registration" />
+      <End Role="tblBooksMember" EntitySet="tblBooksMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBooksMembers_tblNewMembers_registration" Association="MyDBModel.FK_tblBooksMembers_tblNewMembers_registration">
+      <End Role="tblNewMembers_registration" EntitySet="tblNewMembers_registration" />
+      <End Role="tblBooksMember" EntitySet="tblBooksMembers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblBooksCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblNewBooks_registration" Relationship="MyDBModel.FK_tblNewBooks_registration_tblBooksCategory" FromRole="tblBooksCategory" ToRole="tblNewBooks_registration" />
+  </EntityType>
+  <EntityType Name="tblBooksMember">
+    <Key>
+      <PropertyRef Name="registrationID" />
+    </Key>
+    <Property Name="registrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookID" Type="Int32" Nullable="false" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="IssuedDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpiryDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblNewBooks_registration" Relationship="MyDBModel.FK_tblBooksMembers_tblNewBooks_registration" FromRole="tblBooksMember" ToRole="tblNewBooks_registration" />
+    <NavigationProperty Name="tblNewMembers_registration" Relationship="MyDBModel.FK_tblBooksMembers_tblNewMembers_registration" FromRole="tblBooksMember" ToRole="tblNewMembers_registration" />
+  </EntityType>
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblNewBooks_registration">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookAuthor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookPublisher" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookPrice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookCategory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblBooksCategory" Relationship="MyDBModel.FK_tblNewBooks_registration_tblBooksCategory" FromRole="tblNewBooks_registration" ToRole="tblBooksCategory" />
+    <NavigationProperty Name="tblBooksMembers" Relationship="MyDBModel.FK_tblBooksMembers_tblNewBooks_registration" FromRole="tblNewBooks_registration" ToRole="tblBooksMember" />
+  </EntityType>
+  <EntityType Name="tblNewMembers_registration">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phonenumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NIC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date_of_birth" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RepeatPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblBooksMembers" Relationship="MyDBModel.FK_tblBooksMembers_tblNewMembers_registration" FromRole="tblNewMembers_registration" ToRole="tblBooksMember" />
+  </EntityType>
+  <Association Name="FK_tblNewBooks_registration_tblBooksCategory">
+    <End Type="MyDBModel.tblBooksCategory" Role="tblBooksCategory" Multiplicity="1" />
+    <End Type="MyDBModel.tblNewBooks_registration" Role="tblNewBooks_registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBooksCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblNewBooks_registration">
+        <PropertyRef Name="BookCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBooksMembers_tblNewBooks_registration">
+    <End Type="MyDBModel.tblNewBooks_registration" Role="tblNewBooks_registration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MyDBModel.tblBooksMember" Role="tblBooksMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNewBooks_registration">
+        <PropertyRef Name="BookID" />
+      </Principal>
+      <Dependent Role="tblBooksMember">
+        <PropertyRef Name="BookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBooksMembers_tblNewMembers_registration">
+    <End Type="MyDBModel.tblNewMembers_registration" Role="tblNewMembers_registration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MyDBModel.tblBooksMember" Role="tblBooksMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNewMembers_registration">
+        <PropertyRef Name="memberID" />
+      </Principal>
+      <Dependent Role="tblBooksMember">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,122 @@
+﻿@model masood_lab.Models.LibrarianModel
+           
+@{
+    ViewBag.Title = "UpdateLibrarian";
+    Layout = "~/Views/master.cshtml";
+}
+
+<h2>UpdateLibrarian</h2>
+@using (Html.BeginForm("UpdateLibrarian", "Librarian", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group row">
+
+
+        <div class="col-sm-2 mb-3 mb-sm-0">
+            <label>Login ID</label>
+            @Html.HiddenFor(a => a.logininfo.Loginid)
+            @Html.TextBoxFor(a => a.logininfo.Loginid, null, new { @class = "form-control ", @disabled = "disabled" })
+        </div>
+        <div class="col-sm-2 mb-3 mb-sm-0">
+            <label>Lib ID</label>
+            @Html.HiddenFor(a => a.lib_id)
+            @Html.TextBoxFor(a => a.lib_id, null, new { @class = "form-control ", @disabled = "disabled" })
+        </div>
+        <div class="col-sm-2 mb-3 mb-sm-0">
+            <label>UserName</label>
+            @Html.HiddenFor(a => a.lib_username)
+            @Html.TextBoxFor(a => a.lib_username, null, new { @class = "form-control ", @disabled = "disabled" })
+            @Html.ValidationMessageFor(a => a.lib_username, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Full Name</label>
+            @Html.TextBoxFor(a => a.Name, null, new { @class = "form-control ", placeholder = "Masood", required = "required" })
+            @Html.ValidationMessageFor(a => a.Name, null, new { @class = "Errormessage" })
+        </div>
+
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Number</label>
+            @Html.TextBoxFor(a => a.Phonenumber, null, new { @class = "form-control ", placeholder = "03313812604", required = "required" })
+            @Html.ValidationMessageFor(a => a.Phonenumber, null, new { @class = "Errormessage" })
+        </div>
+
+
+
+    </div>
+    <div class="form-group row">
+
+        <div class="col-sm-3">
+            <label>Email</label>
+            @Html.TextBoxFor(a => a.Email, null, new { @class = "form-control ", placeholder = "masoodarif1313@gmail.com", required = "required" })
+            @Html.ValidationMessageFor(a => a.Email, null, new { @class = "Errormessage" })
+        </div>  
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>NIC number</label>
+            @Html.TextBoxFor(a => a.NIC, null, new { @class = "form-control ", placeholder = "413243-83599299-9", required = "required" })
+            @Html.ValidationMessageFor(a => a.NIC, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+            <label>Password</label>
+            @Html.TextBoxFor(a => a.lib_password, null, new { type = "password", @class = "form-control ", placeholder = "****", required = "required" })
+            @Html.ValidationMessageFor(a => a.lib_password, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-3">
+            <label>Repeat Password</label>
+            @Html.TextBoxFor(a => a.repeat_password, null, new { type = "password", @class = "form-control ", placeholder = "****", required = "required" })
+            @Html.ValidationMessageFor(a => a.repeat_password, null, new { @class = "Errormessage" })
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group row">
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Upload Image</label>
+
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                    <img src="@Url.Content((Model.ImagePath).ToString())" alt="" />
+                </div>
+                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                <div>
+                    <span class="btn btn-theme02 btn-file">
+                        <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select image</span>
+                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
+                        <input type="file" class="default" name="ImageFile" />
+
+                    </span>
+                </div>
+
+                @if (@ViewBag.ImageError != null)
+                {
+                    <label class="Errormessage">@ViewBag.ImageError</label>
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="form-grp row">
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary btn-warning" href="@Url.Action("ViewLibrarian", "Librarian")" type="submit">Cancel</button>
+        </div>
+        <div class="col-sm-2">
+            <input type="button" value=" Delete" class="btn btn-primary btn-danger" onclick="delet(@Model.lib_id)" />
+
+        </div>
+    </div>
+    <hr>
+}
+
+<script type="text/javascript">
+    function delet(a){
+        alert("Confirm Delete");
+        window.location = "/Librarian/DeleteLibrarian?FID=" + a;
+    }
+</script>

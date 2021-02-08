@@ -1,0 +1,70 @@
+﻿@model IEnumerable<masood_lab.Models.MemberModel>
+@{
+    ViewBag.Title = "ViewMember";
+    Layout = "~/Views/master.cshtml";
+}
+
+
+<h2>
+    View Member   <label id="masood" class="label label-success" style="font-size:small;display:none">@ViewBag.Message</label>
+                 <label id="error" class="label label-danger" style="font-size:small;display:none">@ViewBag.Error</label>
+</h2>
+
+<div class="content-panel">
+    <div class="adv-table">
+        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+            <thead>
+                <tr>
+                    <th>Mem ID</th>
+                    <th>UserName</th>
+                    <th>Name</th>
+                    <th>NIC</th>
+                    <th>PhoneNumber</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var books in Model)
+                {
+                    <tr class="gradeX">
+                        <td>@books.memberID</td>
+                        <td>@books.member_username</td>
+                        <td>@books.Fullname</td>
+                        <td>@books.NIC</td>
+                        <td>@books.Phonenumber</td>
+                        <td>@books.Address</td>
+                        <td>@books.Email</td>
+                        
+                        <td>
+                            <a class="label label-success" href="@Url.Action("UpdateMember", "Member", new { FID = @books.memberID })">Update <i class="fa fa-edit"></i></a>
+                            <a class="label label-danger"  href="@Url.Action("DeleteMember", "Member", new { FID = @books.memberID })">Delete <i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+                    
+               
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        if ("@ViewBag.Message" != "") {
+          document.getElementById('masood').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#masood').hide(); }, duration);
+        }
+        else if ("@ViewBag.Error" != "") {
+            document.getElementById('error').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#error').hide(); }, duration);
+        }
+
+
+    }
+
+</script>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:57545/Member/AddMember -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Dashio - Bootstrap Admin Template</title>
+
+    <!-- Favicons -->
+    <link href="http://localhost:57545/Content/img/favicon.png" rel="icon">
+    <link href="http://localhost:57545/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./Dashio - Bootstrap Admin Template_files/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="./Dashio - Bootstrap Admin Template_files/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./Dashio - Bootstrap Admin Template_files/style.css" rel="stylesheet">
+    <link href="./Dashio - Bootstrap Admin Template_files/style-responsive.css" rel="stylesheet">
+
+    <!-- =======================================================
+      Template Name: Dashio
+      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+      Author: TemplateMag.com
+      License: https://templatemag.com/license/
+    ======================================================= -->
+</head>
+
+<body>
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="http://localhost:57545/Member/index.html" class="logo"><b>Library Management<span> System</span></b></a>
+            <!--logo end-->
+            
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="http://localhost:57545/Member/login.html">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse " tabindex="5000" style="overflow: hidden; outline: none;">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="http://localhost:57545/Member/profile.html"><img src="./Dashio - Bootstrap Admin Template_files/m.jpg" class="img-circle" width="80"></a></p>
+                    <h5 class="centered">Masood Arif</h5>
+                    <li class="mt">
+                        <a href="http://localhost:57545/Member/AddMember#">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu dcjq-parent-li">
+                        <a href="javascript:;" class="dcjq-parent">
+                            <i class="fa fa-desktop"></i>
+                            <span>Members Panel</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+                            <a class="collapse-item" href="http://localhost:57545/Member/AddMember">Add Member</a>
+                            <a class="collapse-item" href="http://localhost:57545/Member/SearchMember">Search Member</a>
+                            <a class="collapse-item" href="http://localhost:57545/Member/DropMember">Drop Member</a>
+                            <a class="collapse-item" href="http://localhost:57545/Member/ViewMember">View all Members</a>
+                            <a class="collapse-item" href="http://localhost:57545/Member/UpdateMember">Update Member info</a>
+                        </ul>
+                    </li>
+                    <li class="sub-menu dcjq-parent-li">
+                        <a href="javascript:;" class="dcjq-parent">
+                            <i class="fa fa-cogs"></i>
+                            <span>Books Panel</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: none;">
+                            <a class="collapse-item" href="http://localhost:57545/Books/Addbook">Add Book</a>
+                            <a class="collapse-item" href="http://localhost:57545/Books/Searchbook">Search Book</a>
+                            <a class="collapse-item" href="http://localhost:57545/Books/Dropbook">Delete Book</a>
+                            <a class="collapse-item" href="http://localhost:57545/Books/Viewbook">View all Books</a>
+                            <a class="collapse-item" href="http://localhost:57545/Books/Updatebook">Update Book details</a>
+                        </ul>
+                    </li>
+                  
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper site-min-height">
+               
+
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- Icons font CSS-->
+<link href="./Dashio - Bootstrap Admin Template_files/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<link href="./Dashio - Bootstrap Admin Template_files/font-awesome.min.css" rel="stylesheet" media="all">
+<!-- Font special for pages-->
+<link href="./Dashio - Bootstrap Admin Template_files/css" rel="stylesheet">
+<!-- Vendor CSS-->
+<link href="./Dashio - Bootstrap Admin Template_files/select2.min.css" rel="stylesheet" media="all">
+<link href="./Dashio - Bootstrap Admin Template_files/daterangepicker.css" rel="stylesheet" media="all">
+<!-- Main CSS-->
+<link href="./Dashio - Bootstrap Admin Template_files/main.css" rel="stylesheet" media="all">
+<style>
+    .ab{
+        width:70%;
+        
+    }
+</style>
+
+<div class="card card-3">
+    <div class="card-heading"></div>
+    <div class="card-body" style="margin-right:50px">
+        <h2 class="title">Add Member</h2>
+        <form method="POST">
+            <div class="input-group ab ">
+                <input class="input--style-3" type="text" placeholder="Name" name="name">
+            </div>
+            <div class="input-group ab">
+                <input class="input--style-3" type="text" placeholder="Last Name" name="lastname">
+            </div>
+            <div class="input-group ab">
+                <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
+                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+            </div>
+            <div class="input-group ab">
+                <div class="rs-select2 js-select-simple select--no-search">
+                    <select name="gender" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                        <option disabled="disabled" selected="selected">Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 77px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-gender-qx-container"><span class="select2-selection__rendered" id="select2-gender-qx-container" title="Gender">Gender</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    <div class="select-dropdown ab"></div>
+                </div>
+            </div>
+            <div class="input-group ab">
+                <input class="input--style-3" type="email" placeholder="Email" name="email">
+            </div>
+            <div class="input-group ab">
+                <input class="input--style-3" type="text" placeholder="Phone" name="phone">
+            </div>
+            <div class="p-t-10">
+                <button class="btn btn--pill btn--green" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Jquery JS-->
+<script src="./Dashio - Bootstrap Admin Template_files/jquery.min.js.download"></script>
+<!-- Vendor JS-->
+<script src="./Dashio - Bootstrap Admin Template_files/select2.min.js.download"></script>
+<script src="./Dashio - Bootstrap Admin Template_files/moment.min.js.download"></script>
+<script src="./Dashio - Bootstrap Admin Template_files/daterangepicker.js.download"></script>
+<!-- Main JS-->
+<script src="./Dashio - Bootstrap Admin Template_files/global.js.download"></script>
+
+                <div class="row mt">
+                    <div class="col-lg-12">
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- /wrapper -->
+        </section>
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    © Copyrights <strong>Dashio</strong>. All Rights Reserved
+                </p>
+                <div class="credits">
+                    <!--
+                      You are NOT allowed to delete the credit link to TemplateMag with free version.
+                      You can delete the credit link only if you bought the pro version.
+                      Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+                      Licensing information: https://templatemag.com/license/
+                    -->
+                    Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+                </div>
+                <a href="http://localhost:57545/Member/blank.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section><div class="daterangepicker dropdown-menu ltr single opensright"><div class="calendar left single" style="display: block;"><div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_start" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="calendar right" style="display: none;"><div class="daterangepicker_input"><input class="input-mini form-control" type="text" name="daterangepicker_end" value="" style="display: none;"><i class="fa fa-calendar glyphicon glyphicon-calendar" style="display: none;"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="ranges" style="display: none;"><div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" disabled="disabled" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div></div></div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="./Dashio - Bootstrap Admin Template_files/jquery.min.js(1).download"></script>
+    <script src="./Dashio - Bootstrap Admin Template_files/bootstrap.min.js.download"></script>
+    <script src="./Dashio - Bootstrap Admin Template_files/jquery-ui-1.9.2.custom.min.js.download"></script>
+    <script src="./Dashio - Bootstrap Admin Template_files/jquery.ui.touch-punch.min.js.download"></script>
+    <script class="include" type="text/javascript" src="./Dashio - Bootstrap Admin Template_files/jquery.dcjqaccordion.2.7.js.download"></script>
+    <script src="./Dashio - Bootstrap Admin Template_files/jquery.scrollTo.min.js.download"></script>
+    <script src="./Dashio - Bootstrap Admin Template_files/jquery.nicescroll.js.download" type="text/javascript"></script>
+    <!--common script for all pages-->
+    <script src="./Dashio - Bootstrap Admin Template_files/common-scripts.js.download"></script><div id="ascrail2000" class="nicescroll-rails" style="width: 3px; z-index: auto; background: rgb(64, 64, 64); cursor: default; position: fixed; top: 0px; left: 207px; height: 657px; display: none; opacity: 0;"><div style="position: relative; top: 0px; float: right; width: 3px; height: 0px; background-color: rgb(78, 205, 196); background-clip: padding-box; border-radius: 10px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails" style="height: 3px; z-index: auto; background: rgb(64, 64, 64); top: 654px; left: 0px; position: fixed; cursor: default; display: none; opacity: 0;"><div style="position: relative; top: 0px; height: 3px; width: 0px; background-color: rgb(78, 205, 196); background-clip: padding-box; border-radius: 10px; left: 0px;"></div></div>
+    <!--script for this page-->
+
+
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"76356253a0894a61b09da9d64f052125"}
+</script>
+<script type="text/javascript" src="./Dashio - Bootstrap Admin Template_files/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
+
+
+
+</body></html>

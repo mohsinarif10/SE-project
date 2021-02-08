@@ -1,0 +1,42 @@
+﻿@model masood_lab.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/master.cshtml";
+}
+
+<h1>Home <label id="masood" class="label label-success" style="font-size:small;display:none;padding:10px 10px 10px 10px;">@ViewBag.Message</label></h1>
+<br />
+
+<div class="col-md-4 mb">
+    <div class="weather pn" style=" background: url(../../Content/woman-office-table_80328-196.jpg)" >
+        <i class="fa fa-male fa-4x"></i>
+        <h2>@ViewBag.TotalMembers</h2>
+        <h4>Members Registered</h4>
+    </div>
+</div>
+<div class="col-md-4 mb">
+    <div class="weather pn" style="background: url(../../Content/cio_thankyou.png) ">
+        <i class="fa fa-book fa-4x"></i>
+        <h2>@ViewBag.TotalBooks</h2>
+        <h4>Books In Library</h4>
+    </div>
+</div>
+<div class="col-md-4 mb">
+    <div class="weather pn" style=" background: url(../../Content/woman-office-table_80328-196.jpg)">
+        <i class="fa fa-male fa-4x"></i>
+        <h2>@ViewBag.Registered</h2>
+        <h4>Books registered</h4>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+
+        if ("@ViewBag.Message" != "") {
+            document.getElementById('masood').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#masood').hide(); }, duration);
+        }
+
+    }
+
+</script>

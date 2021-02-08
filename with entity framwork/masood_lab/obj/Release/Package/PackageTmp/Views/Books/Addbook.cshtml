@@ -1,0 +1,93 @@
+﻿@model masood_lab.Models.BooksModel
+@{
+    ViewBag.Title = "Addbook";
+    Layout = "~/Views/master.cshtml";
+}
+
+@helper Button(string type, string value)
+{
+    <input type="@type" value="@value" class=" btn btn-primary btn-block" />
+}
+<h2>Add book        <label id="error" class="label label-danger" style="font-size:small;display:none">@ViewBag.model</label>
+    </h2>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    
+    <div class="form-group row">
+        <div class="col-sm-2 mb-3 mb-sm-0">
+            <label>ID</label>
+            @Html.HiddenFor(a => a.BookID)
+            @Html.TextBoxFor(a => a.BookID, null, new { @class = "form-control ", @disabled = "disabled" })
+            @Html.ValidationMessageFor(a => a.BookID, null, new { @class = "Errormessage" })
+        </div>
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Name</label>
+            @Html.TextBoxFor(b => b.BookName, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookName, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-4">
+            <label> Book Author</label>
+            @Html.TextBoxFor(b => b.BookAuthor, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookAuthor, null, new { @class = "Errormessage" })
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Publisher</label>
+            @Html.TextBoxFor(b => b.BookPublisher, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookPublisher, null, new { @class = "Errormessage" })
+        </div>
+    </div>
+    <div class="form-group row">
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Price</label>
+            @Html.TextBoxFor(b => b.BookPrice, null, new { @class = "form-control ", required = "required" })
+            @Html.ValidationMessageFor(b => b.BookPrice, null, new { @class = "Errormessage" })
+        </div>
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label>Book Category</label><br />
+            @Html.DropDownListFor(model => model.BooksCategoryID, ViewBag.BooksCategory as IEnumerable<SelectListItem>, "Please select category", new { @class = "btn btn-theme dropdown-toggle ", required = "required" })
+            @Html.ValidationMessageFor(model => model.BooksCategoryID, null, new { @class = "Errormessage" })
+        </div>
+     
+    </div>
+
+    <div class="form-grp row">
+        <div class="col-sm-2">
+            @Button("submit", "Submit")
+
+        </div>
+        <div class="col-sm-2">
+            @Button("reset", "Reset")
+        </div>
+    </div>
+    <hr>
+}
+<script type="text/javascript">
+    window.onload = function () {
+
+        if ("@ViewBag.model" != "") {
+            document.getElementById('success').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#success').hide(); }, duration);
+        }
+        
+    }
+
+</script>
+
+@*@Html.DropDownListFor(b => b.BookCategoryID, new List<SelectListItem>
+    {
+        new SelectListItem{Text="Fiction",Value="1"},
+        new SelectListItem{Text="Non-fiction",Value="2"},
+        new SelectListItem{Text="Drama",Value="3"},
+        new SelectListItem{Text="Biography",Value="4"},
+        new SelectListItem{Text="Novel",Value="5"},
+        new SelectListItem{Text="Humor",Value="6"},
+        new SelectListItem{Text="Poetry",Value="7"},
+        new SelectListItem{Text="Textbook",Value="8"},
+        new SelectListItem{Text="Horor",Value="9"},
+        new SelectListItem{Text="Crime",Value="10"}
+    }, new { @class = "btn btn-theme dropdown-toggle " }
+         )*@

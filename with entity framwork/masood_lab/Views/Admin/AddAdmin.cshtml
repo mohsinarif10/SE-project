@@ -1,0 +1,48 @@
+﻿@model masood_lab.Models.AdminModel
+
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/SharedLogin.cshtml";
+}
+
+
+<div id="login-page">
+    <div class="container">
+        @using (Html.BeginForm("AddAdmin", "Admin", FormMethod.Post, new {enctype = "multipart/form-data", @class = "form-login" }))
+        {
+            <h2 class="form-login-heading">Admin Sign Up </h2>
+            <div class="login-wrap">
+                @Html.HiddenFor(a => a.logininfo.Loginid)
+                @Html.TextBoxFor(a => a.logininfo.Loginid, null, new { @class = "form-control ", @disabled = "disabled" })
+                <br />
+                @Html.HiddenFor(a => a.admin_id)
+                @Html.TextBoxFor(a => a.admin_id, null, new { @class = "form-control ", @disabled = "disabled" })
+                <br />
+                @Html.TextBoxFor(a => a.admin_username, null, new { @class = "form-control ", placeholder = "UserName", required = "required" })
+                @Html.ValidationMessageFor(a => a.admin_username, null, new { @class = "Errormessage" })
+                    <label class="Errormessage">@ViewBag.error</label>
+                
+                <br>
+                @Html.TextBoxFor(a => a.admin_Name, null, new { @class = "form-control ", placeholder = "Full Name", required = "required" })
+                @Html.ValidationMessageFor(a => a.admin_Name, null, new { @class = "Errormessage" })
+                <br>
+                @Html.TextBoxFor(a => a.admin_password, null, new { type = "password", @class = "form-control ", placeholder = "*******", required = "required" })
+                @Html.ValidationMessageFor(a => a.admin_password, null, new { @class = "Errormessage" })
+               
+                <br />
+
+                    <input type="file" class="default" name="ImageFile" />
+                
+                    <label class="Errormessage">@ViewBag.ImageError</label>
+                
+                    <br />
+
+
+                    <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN UP</button>
+                    <br />
+                    <center><label class="label label-success">@ViewBag.added</label></center>
+</div>
+        }
+
+    </div>
+</div>

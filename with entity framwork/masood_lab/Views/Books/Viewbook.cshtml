@@ -1,0 +1,64 @@
+﻿@model IEnumerable<masood_lab.Models.BooksModel>
+@{
+    ViewBag.Title = "Viewbook";
+    Layout = "~/Views/master.cshtml";
+}
+
+<h2>View book   <label id="masood" class="label label-success" style="font-size:small;display:none">@ViewBag.Message</label>
+                <label id="error" class="label label-danger" style="font-size:small;display:none">@ViewBag.Error</label>
+        </h2>
+
+<div class="content-panel">
+    <div class="adv-table">
+        <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th class="hidden-phone">Book Name</th>
+                    <th class="hidden-phone">Author</th>
+                    <th class="hidden-phone">Publisher</th>
+                    <th class="hidden-phone">Price</th>
+                    <th class="hidden-phone">Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var books in Model)
+                {
+                    <tr class="gradeX">
+                        <td>@books.BookID</td>
+                        <td>@books.BookName</td>
+                        <td>@books.BookAuthor</td> 
+                        <td>@books.BookPublisher</td>
+                        <td>@books.BookPrice</td>
+                        <td>@books.BooksCategory</td>
+                        <td>
+                            <a class="label label-success" href="@Url.Action("UpdateBook", "Books", new { FID = @books.BookID })">Update <i class="fa fa-edit"></i></a>
+                            <a class="label label-danger" href="@Url.Action("DeleteBook", "Books", new { FID = @books.BookID })">Delete <i class="fa fa-trash"></i></a>
+                       </td>
+                     </tr>           
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+
+        if ("@ViewBag.Message" != "") {
+          document.getElementById('masood').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#masood').hide(); }, duration);
+        }
+        else if ("@ViewBag.Error" != "") {
+            document.getElementById('error').style.display = 'inline';
+            var duration = 5000;
+            setTimeout(function () { $('#error').hide(); }, duration);
+        }
+
+
+    }
+
+</script>

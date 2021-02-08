@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Library_systemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblBookRegistration">
+    <Key>
+      <PropertyRef Name="registrationID" />
+    </Key>
+    <Property Name="registrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookID" Type="int" Nullable="false" />
+    <Property Name="MemberID" Type="int" Nullable="false" />
+    <Property Name="IssuedDate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExpiryDate" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblNewBooks_registration">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookAuthor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookPublisher" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookPrice" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookCategory" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblNewMembers_registration">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phonenumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NIC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_of_birth" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RepeatPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_NewBooks_registration_tblCategory">
+    <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+    <End Role="tblNewBooks_registration" Type="Self.tblNewBooks_registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblNewBooks_registration">
+        <PropertyRef Name="BookCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBookRegistration_tblNewBooks_registration">
+    <End Role="tblNewBooks_registration" Type="Self.tblNewBooks_registration" Multiplicity="1" />
+    <End Role="tblBookRegistration" Type="Self.tblBookRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNewBooks_registration">
+        <PropertyRef Name="BookID" />
+      </Principal>
+      <Dependent Role="tblBookRegistration">
+        <PropertyRef Name="BookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBookRegistration_tblNewMembers_registration">
+    <End Role="tblNewMembers_registration" Type="Self.tblNewMembers_registration" Multiplicity="1" />
+    <End Role="tblBookRegistration" Type="Self.tblBookRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNewMembers_registration">
+        <PropertyRef Name="memberID" />
+      </Principal>
+      <Dependent Role="tblBookRegistration">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Library_systemModelStoreContainer">
+    <EntitySet Name="tblBookRegistration" EntityType="Self.tblBookRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCategory" EntityType="Self.tblCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNewBooks_registration" EntityType="Self.tblNewBooks_registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNewMembers_registration" EntityType="Self.tblNewMembers_registration" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_NewBooks_registration_tblCategory" Association="Self.FK_NewBooks_registration_tblCategory">
+      <End Role="tblCategory" EntitySet="tblCategory" />
+      <End Role="tblNewBooks_registration" EntitySet="tblNewBooks_registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBookRegistration_tblNewBooks_registration" Association="Self.FK_tblBookRegistration_tblNewBooks_registration">
+      <End Role="tblNewBooks_registration" EntitySet="tblNewBooks_registration" />
+      <End Role="tblBookRegistration" EntitySet="tblBookRegistration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBookRegistration_tblNewMembers_registration" Association="Self.FK_tblBookRegistration_tblNewMembers_registration">
+      <End Role="tblNewMembers_registration" EntitySet="tblNewMembers_registration" />
+      <End Role="tblBookRegistration" EntitySet="tblBookRegistration" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
