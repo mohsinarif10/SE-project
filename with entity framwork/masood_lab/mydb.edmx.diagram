@@ -6,11 +6,11 @@
     <edmx:Diagrams>
       <Diagram DiagramId="c58a11f704434929bfafb2e74004a33a" Name="Diagram1">
         <EntityTypeShape EntityType="Library_systemModel.tbl_admin" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Library_systemModel.tbl_librarian" Width="1.5" PointX="0.75" PointY="12.625" />
-        <EntityTypeShape EntityType="Library_systemModel.tblBooksCategory" Width="1.5" PointX="1.5" PointY="9.875" />
+        <EntityTypeShape EntityType="Library_systemModel.tbl_librarian" Width="1.5" PointX="3.375" PointY="4.375" />
+        <EntityTypeShape EntityType="Library_systemModel.tblBooksCategory" Width="1.5" PointX="8.375" PointY="6.875" />
         <EntityTypeShape EntityType="Library_systemModel.tblBooksMember" Width="1.5" PointX="6" PointY="4.5" />
-        <EntityTypeShape EntityType="Library_systemModel.tblLogin" Width="1.5" PointX="3" PointY="4.375" />
-        <EntityTypeShape EntityType="Library_systemModel.tblNewBooks_registration" Width="1.5" PointX="3.75" PointY="9.25" />
+        <EntityTypeShape EntityType="Library_systemModel.tblLogin" Width="1.5" PointX="4.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Library_systemModel.tblNewBooks_registration" Width="1.5" PointX="8.25" PointY="2.625" />
         <EntityTypeShape EntityType="Library_systemModel.tblNewMembers_registration" Width="1.5" PointX="0.75" PointY="3.875" />
         <AssociationConnector Association="Library_systemModel.FK_tblLogin_tbl_admin" />
         <AssociationConnector Association="Library_systemModel.FK_tblLogin_tbl_librarian" />
