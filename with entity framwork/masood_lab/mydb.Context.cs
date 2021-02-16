@@ -25,7 +25,6 @@ namespace masood_lab
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_admin> tbl_admin { get; set; }
         public virtual DbSet<tbl_librarian> tbl_librarian { get; set; }
         public virtual DbSet<tblBooksCategory> tblBooksCategories { get; set; }

@@ -434,9 +434,6 @@
       <DependentUpon>mydb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>mydb.tt</DependentUpon>
-    </Compile>
     <Compile Include="tblBooksCategory.cs">
       <DependentUpon>mydb.tt</DependentUpon>
     </Compile>
