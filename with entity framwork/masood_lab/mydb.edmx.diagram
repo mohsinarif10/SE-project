@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c58a11f704434929bfafb2e74004a33a" Name="Diagram1">
-        <EntityTypeShape EntityType="Library_systemModel.tbl_admin" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Library_systemModel.tbl_librarian" Width="1.5" PointX="3.375" PointY="4.375" />
-        <EntityTypeShape EntityType="Library_systemModel.tblBooksCategory" Width="1.5" PointX="8.375" PointY="6.875" />
-        <EntityTypeShape EntityType="Library_systemModel.tblBooksMember" Width="1.5" PointX="6" PointY="4.5" />
-        <EntityTypeShape EntityType="Library_systemModel.tblLogin" Width="1.5" PointX="4.75" PointY="0.5" />
-        <EntityTypeShape EntityType="Library_systemModel.tblNewBooks_registration" Width="1.5" PointX="8.25" PointY="2.625" />
-        <EntityTypeShape EntityType="Library_systemModel.tblNewMembers_registration" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="Library_systemModel.tbl_admin" Width="1.5" PointX="3.125" PointY="0.5" />
+        <EntityTypeShape EntityType="Library_systemModel.tbl_librarian" Width="1.5" PointX="5.625" PointY="0.5" />
+        <EntityTypeShape EntityType="Library_systemModel.tblBooksCategory" Width="1.5" PointX="8.75" PointY="4.25" />
+        <EntityTypeShape EntityType="Library_systemModel.tblBooksMember" Width="1.5" PointX="3.25" PointY="3.875" />
+        <EntityTypeShape EntityType="Library_systemModel.tblLogin" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Library_systemModel.tblNewBooks_registration" Width="1.5" PointX="6.25" PointY="4.125" />
+        <EntityTypeShape EntityType="Library_systemModel.tblNewMembers_registration" Width="1.5" PointX="0.75" PointY="3.75" />
         <AssociationConnector Association="Library_systemModel.FK_tblLogin_tbl_admin" />
         <AssociationConnector Association="Library_systemModel.FK_tblLogin_tbl_librarian" />
         <AssociationConnector Association="Library_systemModel.FK_tblNewBooks_registration_tblBooksCategory" />
