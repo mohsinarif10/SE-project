@@ -1,5 +1,6 @@
 ﻿using masood_lab.DBmanager;
 using masood_lab.Models;
+using masood_lab.Patterns;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,9 @@ namespace masood_lab.Controllers
     public class BooksController : Controller
     {
         // GET: Books
-        Books_Managers obj = new Books_Managers();
+        BooksDBsingleton singleton = BooksDBsingleton.getobject();
+
+        //Books_Managers obj = new Books_Managers();
         BooksModel books = new BooksModel();
 
          public BooksController()
@@ -24,7 +27,7 @@ namespace masood_lab.Controllers
         [HttpGet]
         public ActionResult Addbook()
         {
-            obj.nextid(books);        
+            singleton.nextid(books);        
             return View(books);
         }
         [HttpPost]
@@ -36,7 +39,8 @@ namespace masood_lab.Controllers
                 if (ImageFile != null)
                 {
                     ImageSaver(book, ImageFile);
-                    bool chk = obj.AddBook(book);
+                    
+                    bool chk = singleton.AddBook(book);
                     if (chk)
                     {
                         TempData["Message"] = "Book Added!";
@@ -64,7 +68,7 @@ namespace masood_lab.Controllers
 
         public ActionResult ViewBook()
         {
-            List<BooksModel> book = obj.ViewBooks();
+            List<BooksModel> book = singleton.ViewBooks();
             ViewBag.Message = TempData["Message"];
             ViewBag.Error = TempData["error"];
             return View(book);
@@ -73,7 +77,7 @@ namespace masood_lab.Controllers
         [HttpGet]
         public ActionResult UpdateBook(int FID)
         {
-            BooksModel book = obj.GetOneBook(FID);
+            BooksModel book = singleton.GetOneBook(FID);
             TempData["imagenull"] = book.ImagePath;
             return View(book);
         }
@@ -85,7 +89,7 @@ namespace masood_lab.Controllers
                 if (ImageFile != null)
                 {
                     ImageSaver(book, ImageFile);
-                    bool check = obj.UpdateBook(book);
+                    bool check = singleton.UpdateBook(book);
                     if (check)
                     {
                         TempData["Message"] = "Book Updated!";
@@ -101,7 +105,7 @@ namespace masood_lab.Controllers
                 else if (book.ImagePath !=null)
                 {
 
-                    bool check = obj.UpdateBook(book);
+                    bool check = singleton.UpdateBook(book);
                     if (check)
                     {
                         TempData["Message"] = "Book Updated!";
@@ -124,7 +128,7 @@ namespace masood_lab.Controllers
         }
         public ActionResult DeleteBook(int FID)
         {
-            bool check = obj.DeleteBook(FID);
+            bool check = singleton.DeleteBook(FID);
             if (check)
             {
                 TempData["Message"] = "Book Deleted!";
