@@ -16,7 +16,7 @@ namespace masood_lab.Controllers
         AdminModel Librarian = new AdminModel();
         Admin_Manager obj = new Admin_Manager();
         public ActionResult Index()
-        {
+        {//sjudsdasdusad
             return View();
         }
         [HttpGet]
